@@ -205,6 +205,12 @@ extension Bool: UnboxableRawType {
     }
     
     public static func transform(unboxedString: String) -> Bool? {
+         for element in [ "true", "t" , "y", "yes" ] where element.uppercased() == unboxedString.uppercased() {
+            return true
+        }
+        for element in [ "false", "f" , "n", "no" ] where element.uppercased() == unboxedString.uppercased() {
+            return false
+        }
         return nil
     }
 }
